@@ -18,22 +18,21 @@ public class InputOutputGui {
 
     public void startConversation() throws IllegalArgumentException {
 
-        String fullName = JOptionPane.showInputDialog("Enter full name:");
-        String lastName = "";
-        lastName = nameService.extractLastName(fullName);
-
-        String msg = "Your last name is: " + lastName;
-        JOptionPane.showMessageDialog(null, msg);
-
-    }
-
-    //method added for output
-    public final void displayGui(String message) {
-        if (message == null || message.isEmpty()) {
-            throw new IllegalArgumentException("Value must not be null or empty.");
-        } else {
-            JOptionPane.showMessageDialog(null, message);
+        //do a do while and move the try catch here. Move the output to the try since that should
+        //run only when try succeeds
+        // do {
+        try {
+            String fullName = JOptionPane.showInputDialog("Enter full name:");
+            String lastName = "";
+            lastName = nameService.extractLastName(fullName);
+            String msg = "Presuming you followed the directions "
+                    + "properly (FirstName LastName), your last name is: " + lastName;
+            JOptionPane.showMessageDialog(null, msg);
+        } catch (IllegalArgumentException iae) {
+            JOptionPane.showMessageDialog(null, iae.getMessage());
         }
+        // } while ();
+
     }
 
 }

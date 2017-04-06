@@ -16,26 +16,19 @@ public class InputOutputGui {
         nameService = new NameService();
     }
 
-    public void startConversation() throws ImproperFullNameFormatException {
+    public void startConversation() {
 
         try {
             String fullName = JOptionPane.showInputDialog("Enter full name:");
             String lastName = nameService.extractLastName(fullName);
-            String msg = "Your last name is: " + lastName;
+            String msg = "Presuming you followed the directions "
+                    + "properly (FirstName LastName), your last name is: " + lastName;
             JOptionPane.showMessageDialog(null, msg);
+            //the custom message can be caught here, but the super class can also be caught here too
+            //use the getMessage() method that is built into Exception
         } catch (ImproperFullNameFormatException customException) {
-            throw new ImproperFullNameFormatException();
+            JOptionPane.showMessageDialog(null, customException.getMessage());
         }
 
     }
-
-    //method added for output
-    public final void displayGui(String message) throws IllegalArgumentException {
-        if (message == null || message.isEmpty()) {
-            throw new IllegalArgumentException("Value must not be null or empty.");
-        } else {
-            JOptionPane.showMessageDialog(null, message);
-        }
-    }
-
 }

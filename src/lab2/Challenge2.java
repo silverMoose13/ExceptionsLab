@@ -12,16 +12,9 @@ package lab2;
  */
 public class Challenge2 {
 
-    public static void main(String[] args) throws IllegalArgumentException {
+    public static void main(String[] args) {
         
-        //place the try catch statement here
-        try {
             new InputOutputGui().startConversation();
-        }
-        catch (IllegalArgumentException iae) {
-            new InputOutputGui().displayGui("Error! Your full name was not entered in properly. It must contain"
-                    + " both a first and last name.");
-        }
         
     }
     

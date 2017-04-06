@@ -15,11 +15,11 @@ public class ImproperFullNameFormatException extends Exception {
     }
 
     public ImproperFullNameFormatException(String message) {
-        super(message);
+        super(MESSAGE);
     }
 
     public ImproperFullNameFormatException(String message, Throwable cause) {
-        super(message, cause);
+        super(MESSAGE, cause);
     }
 
     public ImproperFullNameFormatException(Throwable cause) {
